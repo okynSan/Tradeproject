@@ -5,6 +5,10 @@
  */
 package ua.anzaevsk.model.trade;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -12,6 +16,10 @@ import java.util.Objects;
  *
  * @author andrey_zatvornitskiy
  */
+@JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "type")
+@JsonSubTypes({@JsonSubTypes.Type(value = Spot.class, name = "Spot"),
+        @JsonSubTypes.Type(value = Forward.class, name = "Forward"),
+        @JsonSubTypes.Type(value = Options.class, name = "Options")})
 public class Trade {
     
     private String customer;
