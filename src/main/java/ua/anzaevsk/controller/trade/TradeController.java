@@ -6,7 +6,9 @@
 package ua.anzaevsk.controller.trade;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import ua.anzaevsk.model.trade.Trade;
 
 /**
  *
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TradeController {
 
     @RequestMapping(value = "/validateTrade")
-    public String validateTrad() {
+    public String validateTrad(@RequestParam Trade trade) {
         return "Works";
     }
 
