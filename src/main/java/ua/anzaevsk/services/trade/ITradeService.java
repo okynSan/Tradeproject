@@ -6,14 +6,14 @@
 package ua.anzaevsk.services.trade;
 
 import org.springframework.stereotype.Service;
+import ua.anzaevsk.model.trade.Trade;
 
 /**
  *
  * @author andrey_zatvornitskiy
  */
-@Service
 public interface ITradeService {
     
-    public void 
+    public void validateTrade(Trade trade);
     
 }

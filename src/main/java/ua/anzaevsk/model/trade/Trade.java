@@ -6,6 +6,7 @@
 package ua.anzaevsk.model.trade;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 /**
  *
@@ -130,6 +131,72 @@ public class Trade {
     public void setTrader(String trader) {
         this.trader = trader;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 43 * hash + Objects.hashCode(this.customer);
+        hash = 43 * hash + Objects.hashCode(this.ccyPair);
+        hash = 43 * hash + Objects.hashCode(this.type);
+        hash = 43 * hash + Objects.hashCode(this.direction);
+        hash = 43 * hash + Objects.hashCode(this.tradeDate);
+        hash = 43 * hash + Objects.hashCode(this.amount);
+        hash = 43 * hash + Objects.hashCode(this.amount2);
+        hash = 43 * hash + Objects.hashCode(this.rate);
+        hash = 43 * hash + Objects.hashCode(this.valueDate);
+        hash = 43 * hash + Objects.hashCode(this.legalEntity);
+        hash = 43 * hash + Objects.hashCode(this.trader);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Trade other = (Trade) obj;
+        if (!Objects.equals(this.customer, other.customer)) {
+            return false;
+        }
+        if (!Objects.equals(this.ccyPair, other.ccyPair)) {
+            return false;
+        }
+        if (!Objects.equals(this.type, other.type)) {
+            return false;
+        }
+        if (!Objects.equals(this.direction, other.direction)) {
+            return false;
+        }
+        if (!Objects.equals(this.legalEntity, other.legalEntity)) {
+            return false;
+        }
+        if (!Objects.equals(this.trader, other.trader)) {
+            return false;
+        }
+        if (!Objects.equals(this.tradeDate, other.tradeDate)) {
+            return false;
+        }
+        if (!Objects.equals(this.amount, other.amount)) {
+            return false;
+        }
+        if (!Objects.equals(this.amount2, other.amount2)) {
+            return false;
+        }
+        if (!Objects.equals(this.rate, other.rate)) {
+            return false;
+        }
+        if (!Objects.equals(this.valueDate, other.valueDate)) {
+            return false;
+        }
+        return true;
+    }
+    
     
     
 }
