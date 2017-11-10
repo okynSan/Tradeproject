@@ -34,7 +34,7 @@ public class Validator {
     public ResponceObj getValidateResult(Trade trade) {
 
         if (trade instanceof Options) {
-            return new ResponceObj(iOptionsValidator.validateOptionsTrade((Options) trade)).getResponce();
+            return new ResponceObj(iOptionsValidator.validateOptionsTrade((Options) trade));
         } else if (trade instanceof Spot) {
 
         } else if (trade instanceof Forward) {
