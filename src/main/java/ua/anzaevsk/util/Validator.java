@@ -66,7 +66,9 @@ public class Validator {
 
     public boolean spotValidation(Spot spot) {
 
-        if (spot.getValueDate().after(spot.getTradeDate().add(Calendar.DAY_OF_MONTH, 2))) {
+        Calendar endDate = spot.getTradeDate();
+        endDate.add(Calendar.DAY_OF_MONTH, 2);
+        if (spot.getValueDate().after(endDate)) {
             tradeExceptions.add("Value date cannot be before trade date!");
         }
 
