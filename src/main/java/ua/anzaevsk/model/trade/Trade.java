@@ -17,11 +17,12 @@ import java.util.Objects;
  * @author andrey_zatvornitskiy
  */
 @JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "type")
-@JsonSubTypes({@JsonSubTypes.Type(value = Spot.class, name = "Spot"),
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Spot.class, name = "Spot"),
         @JsonSubTypes.Type(value = Forward.class, name = "Forward"),
         @JsonSubTypes.Type(value = Options.class, name = "Options")})
 public class Trade {
-    
+
     private String customer;
     private String ccyPair;
     private String type;
@@ -33,8 +34,9 @@ public class Trade {
     private Calendar valueDate;
     private String legalEntity;
     private String trader;
-    
-     public Trade(){}
+
+    public Trade() {
+    }
 
     public Trade(String customer, String ccyPair, String type, String direction, Calendar tradeDate, Float amount, Float amount2, Float rate, Calendar valueDate, String legalEntity, String trader) {
         this.customer = customer;
@@ -49,8 +51,6 @@ public class Trade {
         this.legalEntity = legalEntity;
         this.trader = trader;
     }
-    
-    
 
     public String getCustomer() {
         return customer;
@@ -204,8 +204,5 @@ public class Trade {
         }
         return true;
     }
-    
-    
-    
+
 }
- 
