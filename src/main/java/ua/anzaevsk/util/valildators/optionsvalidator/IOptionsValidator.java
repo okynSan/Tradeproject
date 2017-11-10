@@ -14,6 +14,6 @@ import ua.anzaevsk.model.trade.Trade;
  */
 public interface IOptionsValidator {
 
-    public void validateOptionsTrade(Options trade);
+    public String validateOptionsTrade(Options trade);
 
 }

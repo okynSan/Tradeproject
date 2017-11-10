@@ -14,7 +14,17 @@ import ua.anzaevsk.model.trade.Trade;
  * @author andrey_zatvornitskiy
  */
 public class ResponceObj {
-    
+
+    private String responce;
+
+    public ResponceObj(String responce) {
+        this.responce = responce;
+    }
+
+    public String getResponce() {
+        return responce;
+    }
+
     Map<Trade, String> responceMap = new HashMap<>();
 
     public Map<Trade, String> getResponceMap() {
@@ -24,7 +34,5 @@ public class ResponceObj {
     public void setResponceMap(Map<Trade, String> responceMap) {
         this.responceMap = responceMap;
     }
-    
-    
-    
+
 }
