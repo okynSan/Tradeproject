@@ -8,15 +8,22 @@ package ua.anzaevsk.util;
 import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.anzaevsk.model.responce.ResponceObj;
+import ua.anzaevsk.model.trade.Forward;
+import ua.anzaevsk.model.trade.Options;
 import ua.anzaevsk.model.trade.Spot;
 import ua.anzaevsk.model.trade.Trade;
+import ua.anzaevsk.util.valildators.optionsvalidator.IOptionsValidator;
 
 /**
  *
  * @author andrey_zatvornitskiy
  */
 public class Validator {
+
+    @Autowired
+    IOptionsValidator iOptionsValidator;
 
     private List<String> tradeExceptions;
 
@@ -27,7 +34,7 @@ public class Validator {
     public ResponceObj getValidateResult(Trade trade) {
 
         if (trade instanceof Options) {
-
+            return new ResponceObj(iOptionsValidator.validateOptionsTrade((Options) trade)).getResponce();
         } else if (trade instanceof Spot) {
 
         } else if (trade instanceof Forward) {
