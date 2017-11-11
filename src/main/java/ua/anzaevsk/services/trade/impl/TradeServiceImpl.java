@@ -6,6 +6,7 @@
 package ua.anzaevsk.services.trade.impl;
 
 import org.springframework.stereotype.Service;
+import ua.anzaevsk.model.responce.ResponceObj;
 import ua.anzaevsk.model.trade.Trade;
 import ua.anzaevsk.services.trade.ITradeService;
 import ua.anzaevsk.util.Validator;
@@ -14,8 +15,8 @@ import ua.anzaevsk.util.Validator;
 public class TradeServiceImpl implements ITradeService {
 
     @Override
-    public void validateTrade(Trade trade) {
-        new Validator().getValidateResult(trade);
+    public ResponceObj validateTrade(Trade trade) {
+        return new Validator().getValidateResult(trade);
     }
 
 }

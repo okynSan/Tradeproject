@@ -6,6 +6,7 @@
 package ua.anzaevsk.services.trade;
 
 import org.springframework.stereotype.Service;
+import ua.anzaevsk.model.responce.ResponceObj;
 import ua.anzaevsk.model.trade.Trade;
 
 /**
@@ -13,7 +14,7 @@ import ua.anzaevsk.model.trade.Trade;
  * @author andrey_zatvornitskiy
  */
 public interface ITradeService {
-    
-    public void validateTrade(Trade trade);
-    
+
+    public ResponceObj validateTrade(Trade trade);
+
 }

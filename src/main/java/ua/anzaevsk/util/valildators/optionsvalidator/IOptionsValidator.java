@@ -5,6 +5,7 @@
  */
 package ua.anzaevsk.util.valildators.optionsvalidator;
 
+import ua.anzaevsk.model.responce.ResponceObj;
 import ua.anzaevsk.model.trade.Options;
 import ua.anzaevsk.model.trade.Trade;
 
@@ -14,6 +15,6 @@ import ua.anzaevsk.model.trade.Trade;
  */
 public interface IOptionsValidator {
 
-    public String validateOptionsTrade(Options trade);
+    public ResponceObj validateOptionsTrade(Options trade);
 
 }
