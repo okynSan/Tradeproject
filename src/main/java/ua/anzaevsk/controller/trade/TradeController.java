@@ -6,7 +6,9 @@
 package ua.anzaevsk.controller.trade;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,9 +26,9 @@ public class TradeController {
     @Autowired
     ITradeService iTradeService;
 
-    @RequestMapping(value = "/validateTrade")
+    @RequestMapping(value = "/validateTrade", method = RequestMethod.POST)
     public @ResponseBody
-    ResponceObj validateTrad(@RequestParam Trade trade) {
+    ResponceObj validateTrad(@RequestBody Trade trade) {
         return iTradeService.validateTrade(trade);
     }
 
