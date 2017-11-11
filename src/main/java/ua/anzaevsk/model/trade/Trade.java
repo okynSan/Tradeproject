@@ -19,16 +19,16 @@ import java.util.Objects;
 @JsonTypeInfo(use = Id.NAME, include = As.PROPERTY, property = "type")
 @JsonSubTypes({
     @JsonSubTypes.Type(value = Spot.class, name = "Spot"),
-        @JsonSubTypes.Type(value = Forward.class, name = "Forward"),
-        @JsonSubTypes.Type(value = Options.class, name = "Options")})
-public class Trade {
+    @JsonSubTypes.Type(value = Forward.class, name = "Forward"),
+    @JsonSubTypes.Type(value = Options.class, name = "VanillaOption")})
+public abstract class Trade {
 
     private String customer;
     private String ccyPair;
     private String type;
     private String direction;
     private Calendar tradeDate;
-    private Float amount;
+    private Float amount1;
     private Float amount2;
     private Float rate;
     private Calendar valueDate;
@@ -44,7 +44,7 @@ public class Trade {
         this.type = type;
         this.direction = direction;
         this.tradeDate = tradeDate;
-        this.amount = amount;
+        this.amount1 = amount;
         this.amount2 = amount2;
         this.rate = rate;
         this.valueDate = valueDate;
@@ -93,11 +93,11 @@ public class Trade {
     }
 
     public Float getAmount() {
-        return amount;
+        return amount1;
     }
 
     public void setAmount(Float amount) {
-        this.amount = amount;
+        this.amount1 = amount;
     }
 
     public Float getAmount2() {
@@ -148,7 +148,7 @@ public class Trade {
         hash = 43 * hash + Objects.hashCode(this.type);
         hash = 43 * hash + Objects.hashCode(this.direction);
         hash = 43 * hash + Objects.hashCode(this.tradeDate);
-        hash = 43 * hash + Objects.hashCode(this.amount);
+        hash = 43 * hash + Objects.hashCode(this.amount1);
         hash = 43 * hash + Objects.hashCode(this.amount2);
         hash = 43 * hash + Objects.hashCode(this.rate);
         hash = 43 * hash + Objects.hashCode(this.valueDate);
@@ -190,7 +190,7 @@ public class Trade {
         if (!Objects.equals(this.tradeDate, other.tradeDate)) {
             return false;
         }
-        if (!Objects.equals(this.amount, other.amount)) {
+        if (!Objects.equals(this.amount1, other.amount1)) {
             return false;
         }
         if (!Objects.equals(this.amount2, other.amount2)) {
